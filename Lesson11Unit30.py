@@ -30,9 +30,6 @@ def get_all_links(page):
             break
     return links
 
-tocrawl = [seed page link]
-crawled = []
-
 def get_page(url):
     # This is a simulated get_page procedure so that you can test your
     # code on two pages "http://xkcd.com/353" and "http://xkcd.com/554".
