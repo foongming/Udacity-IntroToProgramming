@@ -52,6 +52,7 @@ seed = https://udacity.github.io/cs101x/index.html
 def crawl_web(seed):
     tocrawl = [seed]
     crawled = []
+    ##if a list is interpreted as empty, the expression evaluates to False
     while tocrawl:
         page = tocrawl.pop()
         if page not in crawled:
