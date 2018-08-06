@@ -123,8 +123,33 @@ def check_sudoku(x):
 
 """instead of checking if integers. allow only integers"""
 
-##strategy three. check the solution for a hint
-
+##strategy three. after checking the solution for a hint
+def check_sudoku(x):
+    n = len(x)
+    i = 0
+    while i < n:
+        # checking x and y positions down the grid
+        present_elements_in_row = []
+        present_elements_in_column = []
+        second_coordinate = 0
+        position_column = x[i][second_coordinate]
+        position_row = x[second_coordinate][i]
+        print position_column, position_row
+        # check if digit here
+        # check if within range
+        if position_column > n or position_row > n:
+            return False
+        # check for duplicate in column
+        if position_column in present_elements_in_column:
+            return False
+        # check for duplicate in row
+        if position_row in present_elements_in_row:
+            return False
+        i = i + 1
+        increment = increment + 1
+        present_elements_in_row.append(position_row)
+        present_elements_in_column.append(position_column)
+        return True
 
 
 
