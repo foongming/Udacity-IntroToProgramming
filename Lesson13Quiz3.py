@@ -10,8 +10,6 @@ def symmetric(x):
     while b < n:
         a = 0
         while a < n:
-            if len(x[a]) !=n:
-                return False
             if x[a][b] != x[b][a]:
                 return False
             a = a + 1
