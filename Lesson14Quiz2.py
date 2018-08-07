@@ -18,10 +18,20 @@ def is_identity_matrix(matrix):
         #matrix must be square
         if len(matrix[i]) != n:
             return False
-        #matrix must have only one '1' per row
-        #utilise what was learn in Lesson12Quiz8
+        a = 0
+        count_of_one = 0
+        while a < n:
+        #allow only '0' or '1'
+            if matrix[i][a] != 0 and matrix[i][a] != 1:
+                return False
+            if matrix[i][a] == 1:
+                count_of_one = count_of_one + 1
+            a = a + 1
+        if count_of_one != 1:
+            return False
         i = i + 1
     return True
+
 
 # Test Cases:
 
