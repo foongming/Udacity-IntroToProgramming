@@ -17,13 +17,18 @@
 def freq_analysis(message):
     alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     freq_list = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    i = 0
     for e in alphabet:
         for c in message:
             if c == e:
-                freq[e] = freq[e] + 1
-
+                freq_list[i] = freq_list[i] + 1.
+        i = i + 1
+    n = len(message)
+    b = 0
+    for a in freq_list:
+        freq_list[b] = freq_list[b] / n
+        b = b + 1
     return freq_list
-
 
 
 #Tests
