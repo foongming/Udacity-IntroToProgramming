@@ -14,12 +14,32 @@
 def numbers_in_lists(string):
     n = len(string)
     position = 0
-    while position < n:
-        target = string[position]
-        target_hold = int(target)
-    print first_number
+    hold = 0
+    sublist = []
     result = []
-    result.append(x)
+    while position < n:
+        target = int(string[position])
+        if target > hold:
+            if hold == 0:
+                result.append(target)
+                hold = target
+            else:
+                if sublist != []:
+                    result.append(sublist)
+                    result.append(target)
+                    hold = target
+                    sublist = []
+                else:
+                    result.append(target)
+                    hold = target
+        else:
+            sublist.append(target)
+            hold = target
+        position = position + 1
+    if sublist != []:
+        result.append(sublist)
+    return result
+
 
 #testcases
 string = '543987'
@@ -29,7 +49,7 @@ string= '987654321'
 result = [9,[8,7,6,5,4,3,2,1]]
 print repr(string), numbers_in_lists(string) == result
 string = '455532123266'
-result = [4, 5, [5, 5, 3, 2, 1, 2, 3, 2], 6, [6]]
+result = [4, 5, [5, 5, 3, 2, 1], 2, 3, [2], 6, [6]]
 print repr(string), numbers_in_lists(string) == result
 string = '123456789'
 result = [1, 2, 3, 4, 5, 6, 7, 8, 9]
