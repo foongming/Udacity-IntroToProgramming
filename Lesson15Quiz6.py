@@ -13,22 +13,20 @@
 index = []
 
 
-def add_to_index(index,keyword,url):
+def add_to_index(index, keyword, url):
     for entry in index:
         if entry[0] == keyword:
             entry[1].append(url)
             return
-    index.append([keyword,[url]])
-
-def add_page_to_index(index,url,content):
-    for e in index:
-        if e[0] == url:
-            e[1].append(content)
-            return
-    index.append[[url,[content]]]
+    index.append([keyword, [url]])
 
 
-add_page_to_index(index,'fake.text',"This is a test")
+def add_page_to_index(index, url, content):
+    words = content.split()
+    for word in words:
+        add_to_index(index,word,url)
+
+add_page_to_index(index, 'fake.text', "This is a test")
 print index
 #>>> [['This', ['fake.text']], ['is', ['fake.text']], ['a', ['fake.text']],
 #>>> ['test',['fake.text']]]
