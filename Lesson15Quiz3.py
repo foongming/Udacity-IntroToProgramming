@@ -19,6 +19,8 @@ def add_to_index(index,keyword,url):
         if e[0] == keyword:
             e[1].append(url)
             return
+            #this will cause the function to exit if condition is met
+            #hence index.append will only run when the if condition is never mets
     index.append([keyword,[url]])
 
 add_to_index(index,'udacity','http://udacity.com')
