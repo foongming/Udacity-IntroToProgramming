@@ -24,6 +24,8 @@ def split_string(source,splitlist):
             #if the character is in the splitlist
             hold = item
             hold_position = source.find(hold,starting_position)
+            if hold_position == starting_position:
+                pass
             append_this = source[starting_position:hold_position]
             words.append(append_this)
             starting_position = hold_position + 1
