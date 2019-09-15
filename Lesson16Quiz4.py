@@ -13,23 +13,47 @@
 # the source string up by the characters in the
 # splitlist.
 
+
+"""
+this method fails when consecutive items are in the split list
+
 def split_string(source,splitlist):
     # go through source until any of the split list characters
     words = []
     starting_position = 0
+    end_position = 0
+    word = ""
     for item in source:
     # for each character in a string
     # remember that you can loop through strings as well
         if item in splitlist:
-            #if the character is in the splitlist
-            hold = item
-            hold_position = source.find(hold,starting_position)
-            if hold_position == starting_position:
-                pass
-            append_this = source[starting_position:hold_position]
-            words.append(append_this)
-            starting_position = hold_position + 1
+            end_position = source.find(item,starting_position)
+            word = source[starting_position:end_position]
+            if len(word) > 0:
+                words.append(word)
+                starting_position = end_position + 1
+        else:
+                word = word + item
     return words
+"""
+
+
+def split_string(source,splitlist):
+    words = []
+    splitpoint = True
+    # go through source until any of the split list characters
+    for item in source:
+        if item in splitlist:
+            splitpoint = True
+        else:
+            if splitpoint == True :
+                words.append(item)
+                splitpoint = False
+            else:
+                words[-1] = words[-1] + item
+    return words
+
+
 
 out = split_string("This is a test-of the,string separation-code!"," ,!-")
 print out
